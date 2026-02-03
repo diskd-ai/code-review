@@ -98,13 +98,17 @@ For each file/hunk under review, evaluate against these areas (see [references/w
 | **Design** | Right architecture? Belongs here? Proper separation of concerns? |
 | **Functionality** | Does what's intended? Edge cases handled? |
 | **Complexity** | Simplest correct solution? Over-engineered? |
-| **Tests** | Present, correct, will fail when code breaks? |
+| | |
+| **Security** | Injection, XSS, secrets, auth, IDOR, input validation? |
+| **Performance** | N+1, missing indexes, re-renders, memory leaks, blocking async, caching? |
+| | |
+| **Code Quality** | DRY, SRP, deep nesting, magic values, error handling, type coverage? |
+| **Tests** | Present, correct, edge cases, no flaky patterns, mocked at boundaries? |
+| | |
 | **Naming** | Descriptive, follows conventions? |
 | **Comments** | Explain why, not what? |
 | **Style** | Follows style guide? Consistent? |
-| **Docs** | Updated if behavior changed? |
-| **Security** | Input validation, auth, injection, secrets? |
-| **Performance** | N+1, unbounded loops, resource leaks, races? |
+| **Docs** | Updated if behavior changed? Breaking changes documented? |
 
 ## Verify Citations
 

@@ -63,13 +63,30 @@
 | Design | [Pass / Needs work / N/A] | |
 | Functionality | [Pass / Needs work / N/A] | |
 | Complexity | [Pass / Needs work / N/A] | |
+| | | |
+| Security | [Pass / Needs work / N/A] | |
+| Performance | [Pass / Needs work / N/A] | |
+| | | |
+| Code Quality | [Pass / Needs work / N/A] | |
 | Tests | [Pass / Needs work / N/A] | |
+| | | |
 | Naming | [Pass / Needs work / N/A] | |
 | Comments | [Pass / Needs work / N/A] | |
 | Style | [Pass / Needs work / N/A] | |
 | Documentation | [Pass / Needs work / N/A] | |
-| Security | [Pass / Needs work / N/A] | |
-| Performance | [Pass / Needs work / N/A] | |
+
+---
+
+## Quick Checks
+
+- [ ] No hardcoded secrets
+- [ ] Input validation present
+- [ ] Error handling complete
+- [ ] Types/interfaces defined
+- [ ] Tests added for new code
+- [ ] No obvious performance issues
+- [ ] Code is readable and documented
+- [ ] Breaking changes documented
 
 ---
 
