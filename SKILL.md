@@ -1,6 +1,6 @@
 ---
 name: code-review
-description: "Review code with a structured, high-signal review process. Use when asked to review code, review a PR, review a codebase, give feedback on a changelist, audit code quality, or perform a code review. Supports both diff/PR reviews and full codebase reviews. Produces actionable findings with severity labels, exact file+line citations, and a final verdict. Covers design, functionality, complexity, tests, naming, comments, style, documentation, security, and performance."
+description: "Review code with a structured, high-signal review process. Use when asked to review code, review a PR/MR (GitHub PRs via `gh`, GitLab MRs via `glab`), review a codebase, give feedback on a changelist, audit code quality, or perform a code review. Supports both diff/PR reviews and full codebase reviews. Produces actionable findings with severity labels, exact file+line citations, and a final verdict. Covers design, functionality, complexity, tests, naming, comments, style, documentation, security, and performance."
 ---
 
 # Code Review
@@ -21,6 +21,8 @@ Perform a structured code review. Produce actionable findings with exact file+li
 Obtain access to the post-change files for accurate line citations.
 
 - Local checkout: use `git diff` (unstaged/staged) or a commit range
+- GitHub PR: use `gh` to clone/checkout the PR branch (see [references/github-gh.md](references/github-gh.md))
+- GitLab MR: use `glab` to clone/checkout the MR branch (see [references/gitlab-glab.md](references/gitlab-glab.md))
 - If only a diff snippet is provided: ask for a branch/commit or full file contents
 
 ### 2. Scope the change
@@ -28,9 +30,14 @@ Obtain access to the post-change files for accurate line citations.
 Constrain the review to code introduced by the change:
 
 ```bash
-git diff --name-only          # changed files
-git diff --stat               # change size per file
-python scripts/diff_changed_ranges.py --json  # changed line ranges per file
+git diff --name-only          # changed files (working tree)
+git diff --stat               # change size per file (working tree)
+python scripts/diff_changed_ranges.py --json  # changed line ranges per file (working tree)
+
+# PR/MR branch: diff vs base branch (use base from `gh pr view` / `glab mr view`)
+git diff --name-only origin/main...HEAD
+git diff --stat origin/main...HEAD
+python scripts/diff_changed_ranges.py --range origin/main...HEAD --json
 ```
 
 ### 3. Broad assessment
@@ -148,3 +155,5 @@ End with:
 - **[references/review-standard.md](references/review-standard.md)** -- Core review standard: when to approve vs request changes, conflict resolution
 - **[references/what-to-look-for.md](references/what-to-look-for.md)** -- Full checklist of review areas with details for each
 - **[references/review-comments.md](references/review-comments.md)** -- How to write effective comments, severity labels, handling pushback
+- **[references/github-gh.md](references/github-gh.md)** -- GitHub PR review workflow using `gh`
+- **[references/gitlab-glab.md](references/gitlab-glab.md)** -- GitLab MR review workflow using `glab`
